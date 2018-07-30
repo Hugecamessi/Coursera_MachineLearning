@@ -86,7 +86,7 @@ for t = 1:m
     z3 = Theta2*a2;
     a3 = sigmoid(z3);
     
-    d3 = a3 - Y(t,:)';
+    d3 = a3-Y(t,:)';    
     d2 = Theta2(:, 2:end)'*d3.*sigmoidGradient(z2);
     
     delta2 = delta2 + d3*a2';
@@ -105,6 +105,5 @@ Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) + ((lambda / m) * Theta2(:, 2:end)
 
 % Unroll gradients
 grad = [Theta1_grad(:) ; Theta2_grad(:)];
-
 
 end
